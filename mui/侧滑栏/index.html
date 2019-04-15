@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" href="../mui/css/mui.min.css">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+            <!-- 侧滑菜单部分 -->
+            <!-- mui-off-canvas-right改为mui-off-canvas-left则是左侧侧滑 -->
+            <aside id="offCanvasSide" class="mui-off-canvas-right">
+                <div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">关闭侧滑菜单</button>
+                        <ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
+                            <li class="mui-table-view-cell">
+                                <a>
+                                    Item 1
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a>
+                                    Item 2
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a>
+                                    Item 3
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right">
+                                    Item 4
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a>
+                                    Item 5
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a>
+                                    Item 6
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <!--主界面部分-->
+            <div class="mui-inner-wrap">
+                <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <button id="offCanvasShow" type="button" class="mui-btn mui-btn-primary mui-btn-block" style="padding: 10px;">显示侧滑菜单</button>
+                    </div>
+                </div>
+                <!-- off-canvas 遮罩层 -->
+                <div class="mui-off-canvas-backdrop"></div>
+            </div>
+        </div>
+        <script src="../mui/js/mui.min.js"></script> 
+        <script src="../../jquery/jquery.min.js"></script> 
+        <script src="main.js"></script> 
+    </body>
+</html>
