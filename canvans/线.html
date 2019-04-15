@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            body,html{
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            #myCanvas{
+                /*background-color: #27598a;*/
+                border:1px solid #000;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="800" height="500" ></canvas>
+        <script>
+            var c=document.getElementById("myCanvas");
+            var ctx=c.getContext("2d"),
+            width=c.width,
+            height=c.height;
+            ctx.fillStyle="#FF0000";
+            ctx.beginPath();
+            ctx.moveTo(10,10);
+            ctx.lineTo(100,40);
+            ctx.arcTo(400,400,400,90,50);
+            // ctx.lineTo(40,60);
+            // ctx.closePath();
+            ctx.fillStyle="#FF0000";
+            // ctx.lineTo(200,40);
+            ctx.stroke();
+        </script>
+    </body>
+</html>

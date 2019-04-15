@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            *{
+                margin:0;
+                padding: 0;
+            }
+            body,html{
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            #myCanvas{
+                /*background-color: #27598a;*/
+                border:1px solid #000;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="myCanvas" width="800" height="500" ></canvas>
+        <script>
+            var c=document.getElementById("myCanvas");
+            var ctx=c.getContext("2d"),
+            width=c.width,
+            height=c.height;
+            ctx.fillStyle="#FF0000";
+            ctx.beginPath();
+            ctx.arc(10,10,30,0,Math.PI/2);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(width/2,height/2,30,0,Math.PI*2);
+            ctx.stroke();
+        </script>
+    </body>
+</html>
