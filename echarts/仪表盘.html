@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+option = {
+    backgroundColor:'rgba(0,2,16,0.9)',
+    tooltip : {
+        formatter: "{a} <br/>{c} {b}"
+    },
+    series : [
+        {
+            center:['50%','55%'],
+            name:'速度',
+            type:'gauge',
+            min:0,
+            max:240,
+            splitNumber:4,
+            radius: '60%',
+           clockwise:true,
+            axisLine: {        // 坐标轴线
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: [[0.25, 'lime'],[0.5, '#1e90ff'],[0.75, '#da6410'],[1, '#b00']],
+                    width: 3,
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 200
+                }
+            },
+            axisLabel: {          // 坐标轴小标记
+                textStyle: {       // 属性lineStyle控制线条样式
+                    fontWeight: '100',
+                    color: '#929ae5',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 2,
+
+                },
+            },
+            axisTick: {           // 坐标轴小标记
+                length :5,        // 属性length控制线长
+                lineStyle: {       // 属性lineStyle控制线条样式
+                    color: 'auto',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 5,
+                    fontSize:12
+                }
+            },
+            splitLine: {           // 分隔线
+                length :5,         // 属性length控制线长
+                lineStyle: {       // 属性lineStyle（详见lineStyle）控制线条样式
+                    width:1,
+                    color: '#fff',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 5
+                }
+            },
+            pointer: {           // 分隔线
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 5,
+                length:'60%',
+                width:'2'
+            },
+            title : {
+                offsetCenter: ['120%','80%'],
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: 'bolder',
+                    fontSize: 12,
+                    fontStyle: 'italic',
+                    color: '#fff',
+                    shadowColor : '#fff', //默认透明
+                    shadowBlur: 100
+                }
+            },
+            detail : {
+                backgroundColor: 'rgba(30,144,255,0.0)',
+                borderWidth: 0,
+                borderColor: '#fff',
+                shadowColor : '#fff', //默认透明
+                shadowBlur: 2,
+                offsetCenter: ['120%', '70%'],       // x, y，单位px
+                textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                    fontWeight: '700',
+                    color: '#fff',
+                    fontSize:'12'
+                }
+            },
+            data:[{ value:40 ,name: 'km/h'}]
+        }
+    ]
+};
+setInterval(function () {
+    option.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;
+    myChart.setOption(option, true);
+},2000);;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>

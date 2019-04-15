@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="container" style="height: 100%"></div>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=xfhhaTThl11qYVrqLZii6w8qE5ggnhrY&__ec_v__=20190126"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+       <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+       <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+option = null;
+var data = [{
+    name: 'MTC通行费',
+    itemStyle:{
+        color:'#be4f4c'
+    },
+    children: [{
+        name: '一、二片区',
+        value: 1152510376,
+        itemStyle:{
+            color:'#be4f4c'
+        }
+    }, {
+        name: '三片区',
+        value: 295294290.51,
+        itemStyle:{
+            color:'#be4f4c'
+        }
+    }]
+}, {
+    name: 'ETC通行费',
+    itemStyle:{
+        color:'#4e7fbb'
+    },
+    children: [{
+        name: '一、二片区',
+        value: 1463362946.35 ,
+        itemStyle:{
+            color:'#4e7fbb'
+        }
+    }, {
+        name: '三片区',
+        value: 282656738.46 ,
+        itemStyle:{
+            color:'#4e7fbb'
+        }
+    }]
+}];
+
+option = {
+    series: {
+        type: 'sunburst',
+        // highlightPolicy: 'ancestor',
+        data: data,
+        radius: [0, '90%'],
+        label: {
+		        rotate: 'radial',
+		        align: 'center',
+            fontSize:20,
+		        formatter:function(p){
+		            console.log(p);
+		            return p.name+'\n\n'+(p.value/3193824351.32*100).toFixed(2)+'%';
+		        }
+		    }
+    }
+};
+;
+if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+}
+       </script>
+   </body>
+</html>
